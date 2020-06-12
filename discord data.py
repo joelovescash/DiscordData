@@ -1,16 +1,17 @@
 from wordcloud import STOPWORDS
+import string
 stopwords = set(STOPWORDS)
 
-idnum = "#0296"     # Wills number ID    
-name = "will" 
-import os.path, string
-from os import path
+idnum = "#8182"     # Person's number ID    
+name = "chris" 
 filepath = r"C:\Users\cland\Documents\GitHub\DiscordData\\" + name + "_individual.txt"
-#print(filepath)
-#print(path.exists(filepath))
 
 with open(r"C:\Users\cland\Documents\GitHub\DiscordData\rotow - Text - pit-of-unfortune [490245096491581450] thru 06112020.txt", encoding="utf8") as chatlog:
     lines = list(line for line in (l.strip() for l in chatlog) if line)
+with open(r"C:\Users\cland\Documents\GitHub\DiscordData\rotow - Text - osu [284065284241752065] thru 06112020.txt", encoding="utf8") as chatlog2:
+    lines2 = list(line for line in (l.strip() for l in chatlog2) if line)
+
+lines += lines2
 
 individual = open(filepath, "w", encoding="utf8")
 for idx, elem in enumerate(lines):
